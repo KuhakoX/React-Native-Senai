@@ -1,4 +1,4 @@
-import { Text, View, StyleSheet, Linking, TouchableOpacity } from 'react-native';
+import { Text, View, StyleSheet, Linking, TouchableOpacity, Image } from 'react-native';
 
 export default function App() {
   const abrirWhatsApp = () => {
@@ -9,6 +9,7 @@ export default function App() {
 
   return (
     <View style={styles.container}>
+      <Image source={require('./assets/SenaiLogo.png')} style={styles.logo} />
       <Text style={styles.titulo}>Caio Campos Mendes</Text>
 
       <Text style={styles.texto}>
@@ -27,19 +28,26 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#fff',
+    backgroundColor: '#1f1f1f',
   },
   titulo: {
+    color: 'white',
     fontSize: 24,
     fontWeight: 'bold',
     marginBottom: 10,
   },
   texto: {
+    color: 'white',
     fontSize: 18,
     marginBottom: 20,
   },
   link: {
-    color: 'green',
+    color: '#00ff40',
     fontSize: 18,
   },
+  logo: {
+    width: 300,
+    height: 50,
+    marginBottom: 20,
+  }
 });
