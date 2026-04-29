@@ -1,4 +1,4 @@
-import { Text, View, StyleSheet, Linking, TouchableOpacity, Image } from 'react-native';
+import { Text, View, StyleSheet, Linking, TouchableOpacity, Image, LogBox } from 'react-native';
 
 export default function App() {
   const abrirWhatsApp = () => {
@@ -10,15 +10,19 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Image source={require('./assets/SenaiLogo.png')} style={styles.logo} />
-      <Text style={styles.titulo}>Caio Campos Mendes</Text>
+      <Text style={styles.titulo}>Desenvolvimento de sistemas</Text>
+      
+      <Text style={styles.titulo}>Caio Campos Mendes {"\n"} Telefone: (75) 99872-3938</Text>
 
       <Text style={styles.texto}>
-        Linguagem favorita: C
+        Linguagem favorita: JavaScript (Mentira)
       </Text>
 
       <TouchableOpacity onPress={abrirWhatsApp}>
         <Text style={styles.link}>Falar no WhatsApp</Text>
       </TouchableOpacity>
+
+      <Text style={styles.rodape}>Creditos Reservados © Senai 2026</Text>
     </View>
   );
 }
@@ -34,7 +38,11 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: 24,
     fontWeight: 'bold',
-    marginBottom: 10,
+    marginBottom: 30,
+    textAlign: 'center',
+    backgroundColor: '#0E4194',
+    padding: 10,
+    borderRadius: 20,
   },
   texto: {
     color: 'white',
@@ -48,6 +56,16 @@ const styles = StyleSheet.create({
   logo: {
     width: 300,
     height: 50,
-    marginBottom: 20,
+    marginBottom: 100,
+  },
+  rodape: {
+    top: 150,
+    bottom: 1,
+    backgroundColor: '#0E4194',
+    width: '100%',
+    textAlign: 'center',
+    padding: 10,
+    color: 'white',
+    fontSize: 16,
   }
 });
