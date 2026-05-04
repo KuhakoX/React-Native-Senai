@@ -1,4 +1,4 @@
-import { Text, View, StyleSheet, Linking, TouchableOpacity, Image, Pressable, Touchable } from 'react-native';
+import { Text, View, StyleSheet, Linking, TouchableOpacity, Image, Pressable } from 'react-native';
 
 export default function App() {
   const abrirWhatsApp = () => {
@@ -10,19 +10,18 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Image source={require('./assets/SenaiLogo.png')} style={styles.logo} />
-      <View style={styles.actions}>
-        <Text style={styles.titulo}>Desenvolvimento de sistemas</Text>
+      <Text style={styles.titulo}>Desenvolvimento de sistemas</Text>
       
-        <Text style={styles.titulo}>Caio Campos Mendes {"\n"} Telefone: (75) 99872-3938</Text>
-    <Pressable style={styles.button}>
-       <Text style={styles.texto}>
-         Direção
-        </Text>
-     </Pressable>
-      <Pressable onPress={abrirWhatsApp}>
+      <Text style={styles.titulo}>Caio Campos Mendes {"\n"} Telefone: (75) 99872-3938</Text>
+
+      <Text style={styles.texto}>
+        Linguagem favorita: JavaScript (Mentira)
+      </Text>
+
+      <TouchableOpacity onPress={abrirWhatsApp}>
         <Text style={styles.link}>Falar no WhatsApp</Text>
-      </Pressable>
-    </View>
+      </TouchableOpacity>
+
       <Text style={styles.rodape}>Creditos Reservados © Senai 2026</Text>
     </View>
   );
