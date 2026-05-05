@@ -1,5 +1,6 @@
-import { Text, View, StyleSheet, Linking, TouchableOpacity, Image, Pressable, Touchable } from 'react-native';
+import { Text, View, StyleSheet, Linking, Image, Pressable } from 'react-native';
 
+//Função para abrir o WhatsApp, const numero serve para colocar o número de telefone que você deseja conectar ao URL.
 export default function App() {
   const abrirWhatsApp = () => {
     const numero = '5575998723938'; // coloca seu número
@@ -7,23 +8,40 @@ export default function App() {
     Linking.openURL(url);
   };
 
+  function handleLinkPress() {
+    alert('Link clicado. Em Construção...');
+  }
+
   return (
     <View style={styles.container}>
       <Image source={require('./assets/SenaiLogo.png')} style={styles.logo} />
       <View style={styles.actions}>
-        <Text style={styles.titulo}>Desenvolvimento de sistemas</Text>
-      
-        <Text style={styles.titulo}>Caio Campos Mendes {"\n"} Telefone: (75) 99872-3938</Text>
-    <Pressable style={styles.button}>
-       <Text style={styles.texto}>
-         Direção
-        </Text>
-     </Pressable>
-      <Pressable onPress={abrirWhatsApp}>
-        <Text style={styles.link}>Falar no WhatsApp</Text>
-      </Pressable>
-    </View>
-      <Text style={styles.rodape}>Creditos Reservados © Senai 2026</Text>
+        <Text style={styles.titulo}>Desenvolvimento de sistemas</Text>       
+
+        <View style={styles.buttonRow}>
+          <Pressable style={styles.button} onPress={abrirWhatsApp}>
+            <Text style={styles.buttonText}>Suporte</Text>
+          </Pressable>
+
+          <Pressable style={styles.button} onPress={() => alert('Botão Portal clicado. Em Construção...')}>
+            <Text style={styles.buttonText}>Portal</Text>
+          </Pressable>
+
+          <Pressable style={styles.button} onPress={handleLinkPress}>
+            <Text style={styles.buttonText}>Links</Text>
+          </Pressable>
+
+        </View>
+      </View>
+          <View style={styles.buttonBottomRow}>
+            <Pressable style={styles.buttonBottom} onPress={() => alert('Botão Home clicado. Em Construção...')}>
+              <Text style={styles.buttonText}>Home</Text>
+            </Pressable>
+
+            <Pressable style={styles.buttonBottom} onPress={() => alert('Botão Menu clicado. Em Construção...')}>
+              <Text style={styles.buttonText}>Menu</Text>
+            </Pressable>
+          </View>
     </View>
   );
 }
@@ -59,6 +77,40 @@ const styles = StyleSheet.create({
     height: 50,
     marginBottom: 100,
   },
+  buttonRow: {
+    flexDirection: 'column',
+    flexWrap: 'wrap',
+    alignSelf: 'center',
+    justifyContent: 'center',
+    marginTop: 20,
+  },
+  button: {
+    backgroundColor: '#0E4194',
+    paddingVertical: 20,
+    paddingHorizontal: 50,
+    borderRadius: 12,
+    margin: 6,
+  },
+  buttonText: {
+    color: 'white',
+    textAlign: 'center',
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+  buttonBottom: {
+    backgroundColor: '#0E4194',
+    textAlign: 'center',
+    paddingVertical: 12,
+    paddingHorizontal: 100,
+  },
+    buttonBottomRow: {
+      position: 'absolute',
+      width: '100%',
+      bottom: 0,
+      flexDirection: 'row',
+      justifyContent: 'center',
+      marginTop: 20,
+    },
   rodape: {
     top: 150,
     bottom: 1,
