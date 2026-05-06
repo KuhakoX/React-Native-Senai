@@ -8,7 +8,7 @@ import {
 } from "react-native";
 
 //Função para abrir o WhatsApp, const numero serve para colocar o número de telefone que você deseja conectar ao URL.
-export default function App() {
+export default function Home({ navigation }) {
   const abrirWhatsApp = () => {
     const numero = "5575998723938"; // coloca seu número
     const url = `https://wa.me/${numero}`;
@@ -21,7 +21,7 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <Image source={require("./assets/SenaiLogo.png")} style={styles.logo} />
+      <Image source={require("../assets/SenaiLogo.png")} style={styles.logo} />
       <View style={styles.actions}>
         <Text style={styles.titulo}>Desenvolvimento de sistemas</Text>
 
@@ -37,15 +37,15 @@ export default function App() {
             <Text style={styles.buttonText}>Portal</Text>
           </Pressable>
 
-          <Pressable style={styles.button} onPress={handleLinkPress}>
-            <Text style={styles.buttonText}>Links</Text>
+          <Pressable style={styles.button} onPress={() => navigation.navigate("Info")}>
+            <Text style={styles.buttonText}>Informações</Text>
           </Pressable>
         </View>
       </View>
       <View style={styles.buttonBottomRow}>
         <Pressable
           style={styles.buttonBottom}
-          onPress={() => alert("Botão Home clicado. Em Construção...")}
+          onPress={() => navigation.navigate("Home")}
         >
           <Text style={styles.buttonText}>Home</Text>
         </Pressable>
