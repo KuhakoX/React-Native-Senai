@@ -5,16 +5,23 @@ import {
   Linking,
   Image,
   Pressable,
+  TextInput,
+  TouchableOpacity,
+  TextInputBase,
 } from "react-native";
 
+import { Calendar } from "react-native-calendars";
+
+
 //Função para abrir o WhatsApp, const numero serve para colocar o número de telefone que você deseja conectar ao URL.
-export default function Info({ navigation }) {
+export default function Portal({ navigation }) {
   const abrirWhatsApp = () => {
     const numero = "5575998723938"; // coloca seu número
-    const url = `https://wa.me/${numero}`;
+    const url = `https://wa.me/${numero}`; // URL para abrir o WhatsApp
     Linking.openURL(url);
   };
 
+  // Função padrão para lidar com cliques em links, atualmente exibe um alerta indicando que a funcionalidade está em construção.
   function handleLinkPress() {
     alert("Link clicado. Em Construção...");
   }
@@ -23,21 +30,33 @@ export default function Info({ navigation }) {
     <View style={styles.container}>
       <Image source={require("../assets/SenaiLogo.png")} style={styles.logo} />
       <View style={styles.actions}>
-        <Text style={styles.titulo}>Informações</Text>
-        <Text style={styles.texto}>
-          {
-            "Endereço: Praça Barão do Rio Branco, 55 - Centro, Alagoinhas - BA, 48005-135"
-          }
-        </Text>
-
-        <Text style={styles.texto}>
-          {"Horário de funcionamento: \n Aberto 07:30 · Fecha 22:00"}
-        </Text>
-
-        <Pressable style={styles.button} onPress={abrirWhatsApp}>
-          <Text style={styles.buttonText}>Direção</Text>
-        </Pressable>
+        <Text style={styles.titulo}>Calendario</Text>
+        <Calendar
+         theme={{
+                todayTextColor: '#297bff',
+                textMonthFontWeight: 'bold',
+                textDayHeaderFontWeight: 'bold',
+                textMonthFontSize: 18,
+                textDayFontWeight: 'bold',
+                textDayFontSize: 14,
+                selectedDayBackgroundColor: '#0E4194',
+                selectedDayTextColor: '#ffffff',
+              }}
+          // Define a data marcada
+          markedDates={{
+            "2026-05-06": {
+              selected: true,
+              marked: true,
+              selectedColor: "blue",
+            },
+          }}
+          // Callback ao pressionar um dia
+          onDayPress={(day) => {
+            alert(`Dia selecionado: ${day.dateString}`);
+          }}
+        />
       </View>
+
       <View style={styles.buttonBottomRow}>
         <Pressable
           style={styles.buttonBottom}
@@ -73,20 +92,12 @@ const styles = StyleSheet.create({
     backgroundColor: "#0E4194",
     padding: 10,
     borderRadius: 20,
-    shadowColor: "#000",
-    shadowOffset: { width: 4, height: 5 },
-    shadowOpacity: 1.25,
-    shadowRadius: 3.84,
   },
   texto: {
     color: "white",
     fontSize: 18,
     marginBottom: 20,
     textAlign: "center",
-    shadowColor: "#000",
-    shadowOffset: { width: 4, height: 5 },
-    shadowOpacity: 1.25,
-    shadowRadius: 3.84,
   },
   link: {
     color: "#00ff40",
@@ -111,10 +122,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     borderRadius: 12,
     margin: 6,
-    shadowColor: "#000",
-    shadowOffset: { width: 4, height: 5 },
-    shadowOpacity: 1.25,
-    shadowRadius: 3.84,
   },
   buttonText: {
     color: "white",
@@ -135,5 +142,15 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "center",
     marginTop: 20,
+  },
+  rodape: {
+    top: 150,
+    bottom: 1,
+    backgroundColor: "#0E4194",
+    width: "100%",
+    textAlign: "center",
+    padding: 10,
+    color: "white",
+    fontSize: 16,
   },
 });

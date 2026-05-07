@@ -10,7 +10,7 @@ import {
 //Função para abrir o WhatsApp, const numero serve para colocar o número de telefone que você deseja conectar ao URL.
 export default function Home({ navigation }) {
   const abrirWhatsApp = () => {
-    const numero = "5575998723938"; // coloca seu número
+    const numero = "557132878001"; // coloca seu número
     const url = `https://wa.me/${numero}`;
     Linking.openURL(url);
   };
@@ -32,12 +32,15 @@ export default function Home({ navigation }) {
 
           <Pressable
             style={styles.button}
-            onPress={() => alert("Botão Portal clicado. Em Construção...")}
+            onPress={() => navigation.navigate("Portal")}
           >
-            <Text style={styles.buttonText}>Portal</Text>
+            <Text style={styles.buttonText}>Calendário</Text>
           </Pressable>
 
-          <Pressable style={styles.button} onPress={() => navigation.navigate("Info")}>
+          <Pressable
+            style={styles.button}
+            onPress={() => navigation.navigate("Info")}
+          >
             <Text style={styles.buttonText}>Informações</Text>
           </Pressable>
         </View>
@@ -77,6 +80,10 @@ const styles = StyleSheet.create({
     backgroundColor: "#0E4194",
     padding: 10,
     borderRadius: 20,
+    shadowColor: "#000",
+    shadowOffset: { width: 4, height: 5 },
+    shadowOpacity: 1.25,
+    shadowRadius: 3.84,
   },
   texto: {
     color: "white",
@@ -105,6 +112,10 @@ const styles = StyleSheet.create({
     paddingHorizontal: 50,
     borderRadius: 12,
     margin: 6,
+    shadowColor: "#000",
+    shadowOffset: { width: 4, height: 5 },
+    shadowOpacity: 1.25,
+    shadowRadius: 3.84,
   },
   buttonText: {
     color: "white",
@@ -125,15 +136,5 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "center",
     marginTop: 20,
-  },
-  rodape: {
-    top: 150,
-    bottom: 1,
-    backgroundColor: "#0E4194",
-    width: "100%",
-    textAlign: "center",
-    padding: 10,
-    color: "white",
-    fontSize: 16,
   },
 });
