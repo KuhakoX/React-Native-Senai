@@ -44,7 +44,7 @@ export default function Portal({ navigation }) {
               }}
           // Define a data marcada e ela fica destacada no calendario.
           markedDates={{
-            "2026-05-06": {
+            "2026-05-07": {
               selected: true,
               marked: true,
               selectedColor: "blue",
