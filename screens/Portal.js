@@ -16,7 +16,7 @@ import { Calendar } from "react-native-calendars";
 //Função para abrir o WhatsApp, const numero serve para colocar o número de telefone que você deseja conectar ao URL.
 export default function Portal({ navigation }) {
   const abrirWhatsApp = () => {
-    const numero = "5575998723938"; // coloca seu número
+    const numero = "557132878001"; // coloca seu número
     const url = `https://wa.me/${numero}`; // URL para abrir o WhatsApp
     Linking.openURL(url);
   };
@@ -42,7 +42,7 @@ export default function Portal({ navigation }) {
                 selectedDayBackgroundColor: '#0E4194',
                 selectedDayTextColor: '#ffffff',
               }}
-          // Define a data marcada
+          // Define a data marcada e ela fica destacada no calendario.
           markedDates={{
             "2026-05-06": {
               selected: true,

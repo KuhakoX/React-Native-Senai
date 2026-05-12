@@ -10,7 +10,7 @@ import {
 //Função para abrir o WhatsApp, const numero serve para colocar o número de telefone que você deseja conectar ao URL.
 export default function Info({ navigation }) {
   const abrirWhatsApp = () => {
-    const numero = "5575998723938"; // coloca seu número
+    const numero = "557132878001"; // coloca seu número
     const url = `https://wa.me/${numero}`;
     Linking.openURL(url);
   };
