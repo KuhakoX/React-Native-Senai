@@ -7,6 +7,8 @@ import {
   Pressable,
 } from "react-native";
 
+import * as WebBrowser from "expo-web-browser";
+
 //Função para abrir o WhatsApp, const numero serve para colocar o número de telefone que você deseja conectar ao URL.
 export default function Info({ navigation }) {
   const abrirWhatsApp = () => {
@@ -17,6 +19,10 @@ export default function Info({ navigation }) {
 
   function handleLinkPress() {
     alert("Link clicado. Em Construção...");
+  }
+
+  async function portalLink() {
+    await WebBrowser.openBrowserAsync("https://senaiweb6.fieb.org.br/framehtml/web/app/edu/PortalEducacional/login/");
   }
 
   return (
@@ -34,8 +40,8 @@ export default function Info({ navigation }) {
           {"Horário de funcionamento: \n Aberto 07:30 · Fecha 22:00"}
         </Text>
 
-        <Pressable style={styles.button} onPress={abrirWhatsApp}>
-          <Text style={styles.buttonText}>Direção</Text>
+        <Pressable style={styles.button} onPress={portalLink}>
+          <Text style={styles.buttonText}>Portal</Text>
         </Pressable>
       </View>
       <View style={styles.buttonBottomRow}>

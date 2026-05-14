@@ -10,7 +10,7 @@
     "splash": {
       "image": "./assets/SenaiLogo2.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#0E4194"
     },
     "ios": {
       "supportsTablet": true
@@ -18,12 +18,15 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
+        "backgroundColor": "#0E4194"
       },
       "edgeToEdgeEnabled": true
     },
     "web": {
-      "favicon": "./assets/favicon.png"
-    }
+      "favicon": "./assets/SenaiLogo2.png"
+    },
+    "plugins": [
+      "expo-web-browser"
+    ]
   }
 }
