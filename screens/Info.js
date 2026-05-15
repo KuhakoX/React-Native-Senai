@@ -9,6 +9,8 @@ import {
 
 import * as WebBrowser from "expo-web-browser";
 
+import ButtonBottom from "../components/ButtonBottom";
+
 //Função para abrir o WhatsApp, const numero serve para colocar o número de telefone que você deseja conectar ao URL.
 export default function Info({ navigation }) {
   const abrirWhatsApp = () => {
@@ -44,21 +46,9 @@ export default function Info({ navigation }) {
           <Text style={styles.buttonText}>Portal</Text>
         </Pressable>
       </View>
-      <View style={styles.buttonBottomRow}>
-        <Pressable
-          style={styles.buttonBottom}
+       <ButtonBottom
           onPress={() => navigation.navigate("Home")}
-        >
-          <Text style={styles.buttonText}>Home</Text>
-        </Pressable>
-
-        <Pressable
-          style={styles.buttonBottom}
-          onPress={() => alert("Botão Menu clicado. Em Construção...")}
-        >
-          <Text style={styles.buttonText}>Menu</Text>
-        </Pressable>
-      </View>
+        />
     </View>
   );
 }

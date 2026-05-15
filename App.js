@@ -3,7 +3,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import Home from './screens/Home';
 import Info from './screens/Info';
-import Portal from './screens/Portal';
+import Calendario from './screens/Calendario';
 
 const Stack = createNativeStackNavigator();
 
@@ -13,7 +13,7 @@ export default function App() {
       <Stack.Navigator>
         <Stack.Screen name="Home" component={Home} options={{ headerShown: false }} />
         <Stack.Screen name="Info" component={Info} options={{ headerShown: false }} />
-        <Stack.Screen name="Portal" component={Portal} options={{ headerShown: false }} />
+        <Stack.Screen name="Calendario" component={Calendario} options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
   );

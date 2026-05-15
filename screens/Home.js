@@ -7,6 +7,9 @@ import {
   Pressable,
 } from "react-native";
 
+import ButtonMenu from "../components/ButtonMenu";
+import ButtonBottom from "../components/ButtonBottom";
+
 //Função para abrir o WhatsApp, const numero serve para colocar o número de telefone que você deseja conectar ao URL.
 export default function Home({ navigation }) {
   const abrirWhatsApp = () => {
@@ -26,39 +29,21 @@ export default function Home({ navigation }) {
         <Text style={styles.titulo}>Desenvolvimento de sistemas</Text>
 
         <View style={styles.buttonRow}>
-          <Pressable style={styles.button} onPress={abrirWhatsApp}>
-            <Text style={styles.buttonText}>Suporte</Text>
-          </Pressable>
+          <ButtonMenu title="Suporte" onPress={abrirWhatsApp} />
+          <ButtonMenu title="Calendário" onPress={() => navigation.navigate("Calendario")} />
 
-          <Pressable
-            style={styles.button}
-            onPress={() => navigation.navigate("Portal")}
-          >
-            <Text style={styles.buttonText}>Calendário</Text>
-          </Pressable>
 
-          <Pressable
-            style={styles.button}
-            onPress={() => navigation.navigate("Info")}
-          >
-            <Text style={styles.buttonText}>Informações</Text>
-          </Pressable>
+          <ButtonMenu title="Informações" onPress={() => navigation.navigate("Info")} />
         </View>
       </View>
       <View style={styles.buttonBottomRow}>
-        <Pressable
-          style={styles.buttonBottom}
+        <ButtonBottom
           onPress={() => navigation.navigate("Home")}
-        >
-          <Text style={styles.buttonText}>Home</Text>
-        </Pressable>
+        />
 
-        <Pressable
-          style={styles.buttonBottom}
-          onPress={() => alert("Botão Menu clicado. Em Construção...")}
-        >
-          <Text style={styles.buttonText}>Menu</Text>
-        </Pressable>
+        
+         
+
       </View>
     </View>
   );
