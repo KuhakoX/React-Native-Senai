@@ -13,25 +13,9 @@ import {
 import { Calendar, LocaleConfig } from "react-native-calendars";
 
 import ButtonBottom from "../components/ButtonBottom";
+import Footer from "../components/Footer";
+import CalendarioComp from "../components/CalendarioComp";
 
-LocaleConfig.locales['pt-br'] = {
-  monthNames: [
-    'Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 
-    'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'
-  ],
-  monthNamesShort: [
-    'Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 
-    'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'
-  ],
-  dayNames: [
-    'Domingo', 'Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quinta-feira', 'Sexta-feira', 'Sábado'
-  ],
-  dayNamesShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'],
-  today: 'Hoje'
-};
-
-// Definindo o idioma padrão como pt-br
-LocaleConfig.defaultLocale = 'pt-br';
 
 //Função para abrir o WhatsApp, const numero serve para colocar o número de telefone que você deseja conectar ao URL.
 export default function Calendario({ navigation }) {
@@ -51,34 +35,9 @@ export default function Calendario({ navigation }) {
       <Image source={require("../assets/SenaiLogo.png")} style={styles.logo} />
       <View style={styles.actions}>
         <Text style={styles.titulo}>Calendario</Text>
-        <Calendar
-        
-         theme={{
-                todayTextColor: '#297bff',
-                textMonthFontWeight: 'bold',
-                textDayHeaderFontWeight: 'bold',
-                textMonthFontSize: 18,
-                textDayFontWeight: 'bold',
-                textDayFontSize: 14,
-                selectedDayBackgroundColor: '#0E4194',
-                selectedDayTextColor: '#ffffff',
-                borderRadius: 10,
-                arrowColor: '#0E4194',
-              }}
-          // Define a data marcada e ela fica destacada no calendario.
-          markedDates={{
-            "2026-05-07": {
-              selected: true,
-              marked: true,
-              selectedColor: "blue",
-            },
-          }}
-          // Callback ao pressionar um dia
-          onDayPress={(day) => {
-            alert(`Dia selecionado: ${day.dateString}`);
-          }}
-        />
+        <CalendarioComp />
       </View>
+      <Footer />
 
        <ButtonBottom
                 onPress={() => navigation.navigate("Home")}

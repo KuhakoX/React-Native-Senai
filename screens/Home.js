@@ -9,6 +9,8 @@ import {
 
 import ButtonMenu from "../components/ButtonMenu";
 import ButtonBottom from "../components/ButtonBottom";
+import Footer from "../components/Footer";
+
 
 //Função para abrir o WhatsApp, const numero serve para colocar o número de telefone que você deseja conectar ao URL.
 export default function Home({ navigation }) {
@@ -31,19 +33,14 @@ export default function Home({ navigation }) {
         <View style={styles.buttonRow}>
           <ButtonMenu title="Suporte" onPress={abrirWhatsApp} />
           <ButtonMenu title="Calendário" onPress={() => navigation.navigate("Calendario")} />
-
-
           <ButtonMenu title="Informações" onPress={() => navigation.navigate("Info")} />
         </View>
+        <Footer />
       </View>
       <View style={styles.buttonBottomRow}>
         <ButtonBottom
           onPress={() => navigation.navigate("Home")}
         />
-
-        
-         
-
       </View>
     </View>
   );
